@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 07, 2020 at 07:41 PM
--- Server version: 10.4.11-MariaDB
--- PHP Version: 7.2.30
+-- Generation Time: Mar 01, 2022 at 04:46 AM
+-- Server version: 10.4.14-MariaDB
+-- PHP Version: 7.4.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -55,8 +55,10 @@ CREATE TABLE `attendance` (
   `employee_id` int(11) NOT NULL,
   `date` date NOT NULL,
   `time_in` time NOT NULL,
+  `time_in_pm` time NOT NULL,
   `status` int(1) NOT NULL,
   `time_out` time NOT NULL,
+  `time_out_pm` time NOT NULL,
   `num_hr` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -64,8 +66,13 @@ CREATE TABLE `attendance` (
 -- Dumping data for table `attendance`
 --
 
-INSERT INTO `attendance` (`id`, `employee_id`, `date`, `time_in`, `status`, `time_out`, `num_hr`) VALUES
-(87, 1, '2020-05-08', '01:40:51', 1, '00:00:00', 0);
+INSERT INTO `attendance` (`id`, `employee_id`, `date`, `time_in`, `time_in_pm`, `status`, `time_out`, `time_out_pm`, `num_hr`) VALUES
+(127, 1, '2022-03-01', '16:21:44', '16:24:24', 0, '16:24:18', '16:24:29', 0.033333333333333),
+(128, 7, '2022-03-01', '16:21:58', '16:28:18', 0, '16:28:05', '16:28:23', 0.1),
+(129, 13, '2022-03-01', '16:22:22', '00:00:00', 1, '00:00:00', '00:00:00', 0),
+(130, 17, '2022-03-01', '16:22:42', '00:00:00', 1, '00:00:00', '00:00:00', 0),
+(131, 21, '2022-03-01', '08:00:01', '13:00:14', 1, '12:00:01', '17:00:01', 8),
+(132, 22, '2022-03-01', '08:00:00', '13:00:00', 1, '12:00:00', '17:00:00', 8);
 
 -- --------------------------------------------------------
 
@@ -136,7 +143,17 @@ CREATE TABLE `employees` (
 
 INSERT INTO `employees` (`id`, `employee_id`, `firstname`, `lastname`, `address`, `birthdate`, `contact_info`, `gender`, `position_id`, `schedule_id`, `photo`, `created_on`) VALUES
 (1, 'ABC123456789', 'Lyndon', 'Bermoy', 'Surigao City', '2018-04-02', '09079373999', 'Male', 1, 2, 'profile youtube1.jpg', '2018-04-28'),
-(3, 'DYE473869250', 'Jonah', 'Juarez', 'Surigao City', '1992-05-02', '09123456789', 'Female', 2, 2, 'log.jpg', '2018-04-30');
+(7, 'GCJ697041523', 'Chaney', 'Farmer', 'Adipisci excepturi c', '2022-02-08', 'Reiciendis in perfer', 'Male', 1, 1, '', '2022-02-28'),
+(13, 'SYM398175624', 'Abel', 'Wyatt', 'Voluptate ad autem m', '2022-02-08', 'Pariatur Sapiente s', 'Female', 2, 3, '', '2022-02-28'),
+(14, 'GCK654039128', 'Kylynn', 'Whitfield', 'Quam occaecat quaera', '2022-02-22', 'Velit enim sit quibu', 'Female', 1, 4, '', '2022-02-28'),
+(15, 'ZKD689217403', 'Mollie', 'Carrillo', 'Occaecat sit commod', '2022-02-14', 'Et incidunt nihil a', 'Male', 2, 2, '', '2022-02-28'),
+(16, 'YAK095372461', 'Len', 'Buck', 'Labore consequatur ', '2022-02-21', 'Ut aspernatur in quo', 'Female', 1, 2, '', '2022-02-28'),
+(17, 'BQW275814069', 'Gemma', 'Suarez', 'Elit quasi blanditi', '2022-02-28', 'Dolor est sed expli', 'Male', 2, 4, '', '2022-02-28'),
+(18, 'ETH627803419', 'Curran', 'Franco', 'Exercitationem ea in', '2022-02-22', 'Ex veniam dolor id', 'Male', 1, 3, '', '2022-02-28'),
+(19, 'UEC316290587', 'Parbz', 'Haynes', 'Vel quod quia iusto ', '0000-00-00', 'Quis officia similiq', 'Female', 1, 1, '', '2022-02-28'),
+(20, 'OYB074258163', 'Gabriel', 'Herrera', 'Dolor iusto veniam ', '2022-02-22', 'Libero eum qui volup', 'Male', 2, 1, '', '2022-02-28'),
+(21, 'IYO768309125', 'Parbz', 'Jones', 'Dolore accusamus quo', '0000-00-00', 'Ut magni enim sed ve', 'Male', 2, 2, '', '2022-02-28'),
+(22, 'HGP394102768', 'Georgia', 'Cooley', 'Ex sunt voluptas au', '2022-02-16', 'Facere facilis adipi', 'Male', 2, 2, '', '2022-02-28');
 
 -- --------------------------------------------------------
 
@@ -260,7 +277,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `attendance`
 --
 ALTER TABLE `attendance`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=88;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=133;
 
 --
 -- AUTO_INCREMENT for table `cashadvance`
@@ -278,7 +295,7 @@ ALTER TABLE `deductions`
 -- AUTO_INCREMENT for table `employees`
 --
 ALTER TABLE `employees`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `overtime`
