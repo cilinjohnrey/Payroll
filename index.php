@@ -13,8 +13,10 @@
     	<form id="attendance">
           <div class="form-group">
             <select class="form-control" name="status">
-              <option value="in">Time In</option>
-              <option value="out">Time Out</option>
+              <option value="in">Time In AM</option>
+              <option value="out">Time Out AM</option>
+              <option value="in-pm">Time In PM</option>
+              <option value="out-pm">Time Out PM</option>
             </select>
           </div>
       		<div class="form-group has-feedback">

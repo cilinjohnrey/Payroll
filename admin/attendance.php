@@ -122,6 +122,8 @@ function getRow(id){
       $('#attendance_date').html(response.date);
       $('#edit_time_in').val(response.time_in);
       $('#edit_time_out').val(response.time_out);
+      $('#edit_time_inPM').val(response.time_in_pm);
+      $('#edit_time_outPM').val(response.time_out_pm);
       $('#attid').val(response.attid);
       $('#employee_name').html(response.firstname+' '+response.lastname);
       $('#del_attid').val(response.attid);
